@@ -40,8 +40,8 @@ jobs:
 
       - name: Build and Push image
         run: |
-          docker build -f api.bootcamp.clt/Dockerfile -t kiaratorales/bootcampclt-api:${{ steps.meta.outputs.tag }} api.bootcamp.clt
-          docker push kiaratorales/bootcampclt-api:${{ steps.meta.outputs.tag }}
+          docker build -f api.bootcamp.clt/Dockerfile -t Josuever327/api-bootcamp-clt:${{ steps.meta.outputs.tag }} api.bootcamp.clt
+          docker push Josuever327/api-bootcamp-clt:${{ steps.meta.outputs.tag }}
 
   cd:
     needs: ci
@@ -54,5 +54,5 @@ jobs:
         working-directory: api.bootcamp.clt/k8s/helm
         shell: powershell
         run: |
-          helm upgrade --install bootcamp-api . --set image.tag=${{ needs.ci.outputs.image_tag }}
-          kubectl rollout status deployment/bootcamp-api -n bootcampkiara --timeout=120s
+          helm upgrade --install bootcamp-api . --set image.tag=${{ needs.ci.outputs.image_tag }} --namespace bootcamp-jvera --create-namespace
+          kubectl rollout status deployment/bootcamp-api -n bootcamp-jvera --timeout=120s
