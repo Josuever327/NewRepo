@@ -1,7 +1,7 @@
 ﻿replicaCount: 2
 
 image:
-  repository: kiaratorales/bootcampclt-api
+  repository: Josuever327/NewRepo
   tag: "1.1"
   pullPolicy: IfNotPresent
 
@@ -9,7 +9,7 @@ app:
   containerPort: 8080
   env:
     aspnetcoreEnvironment: Development
-    applicationName: API-BOOTCAMP-KIARA
+    applicationName: API.Bootcamp.CLT
 
 service:
   type: NodePort
